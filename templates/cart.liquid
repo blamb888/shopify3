@@ -38,6 +38,9 @@
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
       <button type="submit" name="checkout">Checkout</button>
+      <label for="CartNote">Add</label>
+      <input type="checkbox">
+      <textarea name="note" id="CartNote">{{ cart.note }}</textarea>
     </div>
   </form>
 {% else %}

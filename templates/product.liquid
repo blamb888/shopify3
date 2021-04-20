@@ -47,13 +47,12 @@
 
 <script>
   function addItemToCart() {
-    console.log("aaaaah")
     jQuery.post('/cart/add.js', {
       items: [
         {
           quantity: parseInt($("#Quantity").val()),
           id: {{ product.selected_or_first_available_variant.id }},
-      properties: { "cart_index": {{ cart.item_count }} }
+          properties: { "cart_index": {{ cart.item_count }} }
         }
       ]
     })

@@ -5,6 +5,9 @@ body {
   flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
+  & .links {
+    display: inline-block;
+  }
   & main {
     width: 55% !important;
     margin: 24px auto !important;
@@ -48,6 +51,7 @@ body {
   justify-content: center;
   width: 100%;
   height: auto;
+  text-shadow: 2px;
   & #current-item, #your-cart {
     border-bottom: 5px solid black;
   }

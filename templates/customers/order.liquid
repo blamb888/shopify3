@@ -28,7 +28,7 @@
     <td>{{ line_item.quantity }}</td>
     <td>{{ line_item.line_price | money }}</td>
   </tr>
-    {% if order.attributes %}
+    {% comment %} {% if order.attributes %}
     <p>Order notes:</p>
       <ul>
         {% for attribute in order.attributes %}
@@ -36,5 +36,5 @@
         {% endfor %}
       </ul>
   {% endif %}
-  {% endfor %}
+  {% endfor %} {% endcomment %}
 </table>

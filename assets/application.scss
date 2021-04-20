@@ -38,3 +38,15 @@ body {
   }
 }
 
+.modal-content{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  & .modal-body {
+    & h3 {
+      margin: 24px;
+    }
+  }
+}
+

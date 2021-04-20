@@ -35,10 +35,11 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h3>Current Item:{{ current_variant.title }}</h3>
-        <h3>x({{ current_variant.inventory_quantity }}) left in stock</h3>
+        <h3>Current Item:</h3>
+        <h2>{{ product.title }}</h2>
+        <h4>x({{ current_variant.inventory_quantity }}) left in stock</h4>
       </div>
-      <div class="modal-header">
+      <div class="modal-body">
         <h5 class="modal-title" id="exampleModalLongTitle">Your Cart</h5>
       <div class="modal-body">
         <ol>

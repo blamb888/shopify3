@@ -43,7 +43,11 @@ body {
   flex-direction: column !important;
   align-items: center;
   justify-content: center;
-  & .modal-body {
+  & div {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center;
+      justify-content: center;
     & h3 {
       margin: 24px;
     }

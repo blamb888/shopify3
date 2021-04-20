@@ -37,3 +37,32 @@ body {
     }
   }
 }
+
+//buttons
+#AddToCart {
+  border: none;
+  border-radius: 2px;
+}
+
+.unavailable {
+  background-color: rgb(182, 180, 180);
+  pointer-events: none !important;
+}
+
+.available {
+  border: 2px solid rgb(136, 245, 178) !important;
+  background-color: rgb(38, 218, 38);
+  color: white;
+}
+
+.available:hover {
+  background-color: rgb(134, 171, 219);
+  color: rgb(134, 171, 219);
+  font-size: 0px;
+}
+
+.available:hover:after {
+  content: attr(data-hover);
+  color: white;
+  font-size: 14px;
+}

@@ -33,6 +33,7 @@
           </tr>
         {% endfor %}
       </tbody>
+      {{ order.attributes.note }}
     </table>
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
@@ -47,12 +48,14 @@
   <h2>Cart</h2>
   Cart is empty
 {% endif %}
+
+<!-- Scripts -->
 <script>
   function checkBox() {
   // Get the checkbox
-  var checkBox = document.getElementById("checkbox");
+  let checkBox = document.getElementById("checkbox");
   // Get the output text
-  var text = document.getElementById("CartNote");
+  let text = document.getElementById("CartNote");
 
   // If the checkbox is checked, display the output text
   if (checkBox.checked != true){

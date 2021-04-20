@@ -1,0 +1,96 @@
+<div id="shopify-section-[id]" class="shopify-section slideshow">
+  [See if anything shows up here]
+    {% for block in section.blocks %}
+      <div class="grid-item" {{ block.shopify_attributes }}>
+        {% case block.type %}
+        {% when 'text' %}
+          {{ block.settings.label }}
+        {% when 'image' %}
+          <img src="{{ block.settings.image | img_url }}">
+        {% endcase %}
+      </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Multiple Blocks",
+    "blocks": [
+      {
+        "type": "block-1",
+        "name": "Campaign",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Campaign, New Product, or News?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      },
+      {
+        "type": "block-2",
+        "name": "New Product",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Campaign, New Product, or News?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      },
+      {
+        "type": "block-3",
+        "name": "News",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Campaign, New Product, or News?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

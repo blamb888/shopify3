@@ -42,11 +42,11 @@
       <div class="modal-body">
         <h5 class="modal-title" id="exampleModalLongTitle">Your Cart</h5>
       <div class="modal-body">
-        <ol>
+        <ul>
           {% for item in cart.items %}
-          <li>{{ item.title }} x{{ item.quantity }}</li>
+          <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li>
           {% endfor %}
-        </ol>
+        </ul>
       </div>
         <p>Total Items: {{ cart.item_count }}</p>
       </div>

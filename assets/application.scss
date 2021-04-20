@@ -36,6 +36,9 @@ body {
       margin: 8px;
     }
   }
+  & ul {
+    list-style: none;
+  }
 }
 
 .modal-content{

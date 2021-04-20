@@ -8,11 +8,11 @@
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "order_notes",
+    "name": "Cart page",
     "settings": [
       {
         "type": "checkbox",
-        "id": "add_order_notes",
+        "id": "cart_notes_enable",
         "label": "Add Order Notes",
         "info": "Each customer will be able to add order notes to their orders",
         "default": false

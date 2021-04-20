@@ -34,21 +34,22 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body" id="current-item">
         <h3>Current Item:</h3>
         <h2>{{ product.title }}</h2>
         <h4>x({{ current_variant.inventory_quantity }}) left in stock</h4>
       </div>
-      <div class="modal-body">
-        <h5 class="modal-title" id="exampleModalLongTitle">Your Cart</h5>
-      <div class="modal-body">
-        <ul>
-          {% for item in cart.items %}
-          <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li>
-          {% endfor %}
-        </ul>
+      <div class="modal-body" id="your-cart">
+          <h3 class="modal-title" id="exampleModalLongTitle">Your Cart:</h3>
+          <ul>
+            {% for item in cart.items %}
+            <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li>
+            {% endfor %}
+          </ul>
       </div>
-        <p>Total Items: {{ cart.item_count }}</p>
+      <div class="modal-body">
+        <h3>Total:</h3>
+        <h4>{{ cart.item_count }} {{ cart.item_count | | pluralize: 'item', 'items' }} {{ cart.total_price | money }}</h4>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

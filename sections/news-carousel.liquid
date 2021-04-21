@@ -3,10 +3,21 @@
   <div class="grid">
     {% for block in section.blocks %}
       <div class="grid-item">
-        {% if block.type == 'block-1' %}
-          <h2>{{block.settings.title}}</h2>
-        {% elsif block.type == 'block-2' %}
-          <h3>{{block.settings.title}}</h3>
+        {% if block.type == 'block-2' %}
+          <div id="box" class="new-product">
+            <h2>{{block.settings.title}}</h2>
+            <h3>"{{block.settings.description}}"</h3>
+          </div>
+        {% elsif block.type == 'block-1' %}
+          <div id="box" class="campaign">
+            <h2>{{block.settings.title}}</h2>
+            <h3>"{{block.settings.description}}"</h3>
+          </div>
+        {% else block.type == 'block-3' %}
+          <div id="box" class="news">
+            <h2>{{block.settings.title}}</h2>
+            <h3>"{{block.settings.description}}"</h3>
+          </div>
         {% endif %}
     {% endfor %}
       </div>
@@ -101,6 +112,21 @@
     max-width: 900px;
     margin: 0 auto;
   }
+  .campaign h2 {
+    color: red;
+  }
+  .new-product h2 {
+    color: blue;
+  }
+  .news h2 {
+    color: green;
+  }
+  #box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px antiquewhite;
+  }
   .grid-item {
     margin-right: 24px;
   }
@@ -108,3 +134,5 @@
     margin-right: 0px;
   }
 {% endstyle %}
+
+

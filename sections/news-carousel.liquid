@@ -65,7 +65,7 @@
             "id": "title",
             "type": "text",
             "label": "Title",
-            "default": "Campaign, New Product, or News?"
+            "default": "What's the campaign?"
           },
           {
             "id": "description",
@@ -90,7 +90,7 @@
             "id": "title",
             "type": "text",
             "label": "Title",
-            "default": "Campaign, New Product, or News?"
+            "default": "What's the new product?"
           },
           {
             "id": "description",
@@ -115,7 +115,7 @@
             "id": "title",
             "type": "text",
             "label": "Title",
-            "default": "Campaign, New Product, or News?"
+            "default": "What's the good news?"
           },
           {
             "id": "description",
@@ -148,6 +148,7 @@
   .grid {
     display: flex;
     max-width: 100%;
+    flex-direction: row;
   }
 
   .campaign h2 {
@@ -170,7 +171,8 @@
   }
 
   #box-checked {
-    width: 100%;
+    width: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     text-align: center;

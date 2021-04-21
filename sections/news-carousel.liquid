@@ -1,26 +1,56 @@
 <div id="shopify-section-[id]" class="shopify-section slideshow">
-  [See if anything shows up here]
-  <div class="grid">
+  <div class="grid" {{ block.shopify_attributes }}>
+
     {% for block in section.blocks %}
-      <div class="grid-item">
-        {% if block.type == 'block-2' %}
-          <div id="box" class="new-product">
-            <h2>{{block.settings.title}}</h2>
-            <h3>"{{block.settings.description}}"</h3>
-          </div>
-        {% elsif block.type == 'block-1' %}
-          <div id="box" class="campaign">
-            <h2>{{block.settings.title}}</h2>
-            <h3>"{{block.settings.description}}"</h3>
-          </div>
-        {% else block.type == 'block-3' %}
-          <div id="box" class="news">
-            <h2>{{block.settings.title}}</h2>
-            <h3>"{{block.settings.description}}"</h3>
-          </div>
-        {% endif %}
+      {% if block.settings.featured == true %}
+        {% case block.type %}
+          {% when 'block-1' %}
+            <div id="box-checked" class="campaign" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-2' %}
+            <div id="box-checked" class="new-product" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-3' %}
+            <div id="box-checked" class="news" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+        {% endcase %}
+      {% endif %}
     {% endfor %}
-      </div>
+
+    {% for block in section.blocks %}
+      {% if block.settings.featured != true %}
+        {% case block.type %}
+          {% when 'block-1' %}
+            <div id="box-checked" class="campaign" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-2' %}
+            <div id="box-checked" class="new-product" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-3' %}
+            <div id="box-checked" class="news" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+        {% endcase %}
+      {% endif %}
+    {% endfor %}
+
 </div>
 
 {% schema %}
@@ -107,32 +137,53 @@
 {% endschema %}
 
 {% style %}
+
+  #shopify-section-[id] {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+  }
   .grid {
     display: flex;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 100%;
   }
+
   .campaign h2 {
     color: red;
   }
+
   .new-product h2 {
     color: blue;
   }
+
   .news h2 {
     color: green;
   }
-  #box {
+
+  #box1, #box2, #box3 {
     display: flex;
     flex-direction: column;
     text-align: center;
     box-shadow: 2px 2px 2px 2px antiquewhite;
   }
-  .grid-item {
-    margin-right: 24px;
+
+  #box-checked {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px antiquewhite;
+    padding: 24px !important;
+    margin: 24px !important;
   }
-  .grid-item:last-of-type {
-    margin-right: 0px;
-  }
+
 {% endstyle %}
 
-
+{% javascript %}
+    {% comment %} let box = document.getElementById("box-checked");
+    let list = document.getElementById("list");
+    console.log("elements selected");
+    box.prepend(list); {% endcomment %}
+{% endjavascript %}

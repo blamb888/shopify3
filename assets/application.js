@@ -3,7 +3,7 @@ const axios = require('axios');
 
 console.log('🛠️ Creating a product metafield...');
 console.log('🛠️ Checking url...');
-let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6693539938454/metafields.json";
+let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6693552193686/metafields.json";
 
 console.log(`✔️ URL: ${url}`);
 

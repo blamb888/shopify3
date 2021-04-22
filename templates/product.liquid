@@ -28,7 +28,7 @@
 </form>
 <div>{{ product.description }}</div>
 <ul>
-   {% for field in product.metafields.instructions %}
+   {% for field in product.metafields.global %}
    <li>{{ field | first }}: {{ field | last }}</li>
    {% endfor %}
 </ul>

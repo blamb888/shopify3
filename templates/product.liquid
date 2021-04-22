@@ -45,6 +45,15 @@
 </form>
 <div>{{ product.description }}</div>
 
+<div class="metafields">
+  <ul>
+    {% for field in product.metafields.global %}
+    <li><h2>Metafield Test - Global - {{ field | first }}: {{ field | last }}</h2></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

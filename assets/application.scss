@@ -80,6 +80,12 @@ body {
   border-radius: 2px;
 }
 
+
+.metafields {
+  & ul {
+   list-style: none;
+ }
+
 .unavailable {
   background-color: rgb(182, 180, 180);
   pointer-events: none !important;
@@ -101,5 +107,4 @@ body {
   content: attr(data-hover);
   color: white;
   font-size: 14px;
-
 }

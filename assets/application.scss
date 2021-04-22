@@ -73,17 +73,17 @@ body {
 .products-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+}
 //buttons
 #AddToCart {
   border: none;
   border-radius: 2px;
 }
 
-
 .metafields {
   & ul {
    list-style: none;
+  }
  }
 
 .unavailable {
@@ -108,3 +108,4 @@ body {
   color: white;
   font-size: 14px;
 }
+

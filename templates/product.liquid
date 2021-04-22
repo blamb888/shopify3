@@ -1,4 +1,5 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
+{% assign current_stock = current_variant.inventory_quantity %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 {% assign current_stock = current_variant.inventory_quantity %}
 
@@ -26,7 +27,21 @@
   {{ current_variant.price | money }}
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+
+    {% if current_variant.available %}
+      {% assign buttonClass='available' %}
+        {% if current_stock >= 3 %}
+          {% assign buttonText='Add to cart' %}
+        {% else %}
+          {% assign buttonText='Low stock' %}
+        {% endif %}
+    {% else %}
+      {% assign buttonClass='unavailable'%}
+      {% assign buttonText='Unavailable' %}
+    {% endif %}
+
+
+  <button type="submit" data-hover="Add to cart" name="add" id="AddToCart" class={{ buttonClass }} onclick="addItemToCart('addItemToCartForm'); return false;">{{ buttonText }}</button>
 </form>
 <div>{{ product.description }}</div>
 
@@ -64,4 +79,18 @@
     $(window).on('load', function() {
         $('#exampleModalCenter').modal('show');
     });
+</script>
+
+<script>
+  function addItemToCart() {
+    jQuery.post('/cart/add.js', {
+      items: [
+        {
+          quantity: parseInt($("#Quantity").val()),
+          id: {{ product.selected_or_first_available_variant.id }},
+          properties: { "cart_index": {{ cart.item_count }} }
+        }
+      ]
+    })
+  }
 </script>

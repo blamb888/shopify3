@@ -10,22 +10,21 @@ body {
   }
   & main {
     width: 55% !important;
-    margin: 24px auto !important;
   }
   & h1, h2, p, a {
   font-family: 'Roboto', sans-serif !important;
-  padding: 16px !important;
+  padding: 8px !important;
   }
   & a {
     text-decoration: none !important;
     font-weight: bold !important;
   }
   & div {
-    padding: 16px !important;
     margin: 16px !important;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   & img {
     border-radius: 24px;
@@ -70,3 +69,37 @@ body {
   }
 }
 
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+//buttons
+#AddToCart {
+  border: none;
+  border-radius: 2px;
+}
+
+.unavailable {
+  background-color: rgb(182, 180, 180);
+  pointer-events: none !important;
+}
+
+.available {
+  border: 2px solid rgb(136, 245, 178) !important;
+  background-color: rgb(38, 218, 38);
+  color: white;
+}
+
+.available:hover {
+  background-color: rgb(134, 171, 219);
+  color: rgb(134, 171, 219);
+  font-size: 0px;
+}
+
+.available:hover:after {
+  content: attr(data-hover);
+  color: white;
+  font-size: 14px;
+
+}

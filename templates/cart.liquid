@@ -33,14 +33,35 @@
           </tr>
         {% endfor %}
       </tbody>
+      {{ order.attributes.note }}
     </table>
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
       <button type="submit" name="checkout">Checkout</button>
     </div>
+    <label for="CartNote">Add Instructions</label>
+    <input type="checkbox" id="checkbox" onClick="checkBox()">
+    <textarea name="attributes[note]" value="{{ cart.attributes.note }}" id="CartNote" style="display: none;">{{ cart.note }}</textarea>
   </form>
 {% else %}
   <h2>Cart</h2>
   Cart is empty
 {% endif %}
+
+<!-- Scripts -->
+<script>
+  function checkBox() {
+  // Get the checkbox
+  let checkBox = document.getElementById("checkbox");
+  // Get the output text
+  let text = document.getElementById("CartNote");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked != true){
+    text.style.display = "none";
+  } else {
+    text.style.display = "block";
+  }
+}
+</script>

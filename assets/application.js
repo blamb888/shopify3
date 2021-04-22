@@ -9,8 +9,6 @@ console.log(`✔️ URL: ${url}`);
 
 async function createMetaField() {
 
-  // let number = await axios.get(url).then(response => response.data.metafields[0].value);
-
   await axios.get(url)
   .then(function(response) {
     if(response.status === 201) {

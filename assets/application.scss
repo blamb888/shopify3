@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import "footer";
 
-
+*{
+  font-size: larger;
+}
 body {
   display: flex !important;
   flex-direction: column;
@@ -20,8 +22,8 @@ body {
   & a {
     text-decoration: none !important;
     font-weight: bold !important;
-    color: white;
-    font-size: xxx-large;
+    color: black;
+    font-size: larger;
   }
   // & div {
   //   flex-direction: column;
@@ -36,7 +38,7 @@ body {
   }
   & form {
     padding: 16px;
-    margin: 16px;
+    // margin: 16px;
     & label, input, select {
       margin: 8px;
     }
@@ -44,6 +46,14 @@ body {
   & ul {
     list-style: none;
   }
+}
+
+div span {
+    font-size: larger;
+}
+
+#text {
+  font-size: larger;
 }
 
 .modal-content{
@@ -55,6 +65,9 @@ body {
   height: auto;
   text-shadow: 2px;
   margin: auto auto !important;
+  & li {
+    font-size: large;
+  }
   & #current-item, #your-cart {
     border-bottom: 5px solid black;
   }
@@ -73,22 +86,44 @@ body {
   }
 }
 
-
-.products-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 55%;
+  margin: 24px auto;
+  align-items: center;
 }
+
+#shopify-section-news-carousel{
+  align-items: center;
+  & span {
+    flex-direction: row;
+  }
+}
+
+#cart {
+  font-size: small !important;
+  & label {
+    font-size: large;
+  }
+  & #checkbox {
+    padding: 8px;
+    width: 24px;
+    height: 24px;
+  }
+  & textarea {
+    width: 500px;
+    height: 250px;
+    margin-top: 24px;
+  }
+}
+
 //buttons
+
 #AddToCart {
   border: none;
   border-radius: 2px;
 }
-
-.metafields {
-  & ul {
-   list-style: none;
-  }
- }
 
 .unavailable {
   background-color: rgb(182, 180, 180);
@@ -110,12 +145,14 @@ body {
 .available:hover:after {
   content: attr(data-hover);
   color: white;
-  font-size: 14px;
+  font-size: x-large;
 }
 
 h1 div {
   margin: 16px;
 }
+
+// Footer
 
 #shopify-section-footer{
   width: 100% !important;
@@ -153,9 +190,16 @@ h1 div {
   color: #D23333;
 }
 
+// Header
+
+#banner-h1{
+  font-size: 100px;
+  text-shadow: 1px 1px black;
+  color: #b3aeae;
+}
 
 #shopify-section-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.418)),
   url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnerdsonearth.com%2Fwp-content%2Fuploads%2F2014%2F12%2Fdd3.jpg&f=1&nofb=1);
   background-size: cover;
   background-position: center;
@@ -165,9 +209,17 @@ h1 div {
   flex-direction: row;
   align-items: center;
   background-color: black;
-  box-shadow: 2px 2px 2px 2px antiquewhite;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.52);
   justify-content: center;
   margin-bottom: 80px;
+  color: white;
+  & a {
+    color: white !important;
+    text-shadow: 2px 2px black;
+  }
+  & a:hover {
+    color: rgba(255, 255, 255, 0.479) !important;
+  }
 }
 .banner {
   background-size: cover;
@@ -188,4 +240,10 @@ h1 div {
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.metafields {
+  & ul {
+    list-style: none;
+  }
 }

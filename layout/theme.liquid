@@ -18,19 +18,21 @@
 </head>
 <body>
   <h1> Hey is this working ?</h1>
-  {% for link in linklists.main-menu.links %}
-    {% assign child_list_handle = link.title | handleize %}
-    {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-      {% endfor %}]
-    {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endif %}
-  {% endfor %}
+  <div class="links">
+    {% for link in linklists.main-menu.links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if linklists[child_list_handle].links != blank %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        [{% for childlink in linklists[child_list_handle].links %}
+          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+        {% endfor %}]
+      {% else %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endif %}
+    {% endfor %}
 
-  <a href="/cart">cart</a>
+    <a href="/cart">cart</a>
+  </div>
 
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
@@ -43,6 +45,8 @@
   {% endif %}
 
   <main role="main">
+    {% section 'news-carousel' %}
+    {{ section.settings.title }}
     {{ content_for_layout }}
   </main>
 </body>

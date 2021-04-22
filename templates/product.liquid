@@ -104,7 +104,7 @@
         {
           quantity: parseInt($("#Quantity").val()),
           id: {{ product.selected_or_first_available_variant.id }},
-          properties: { "cart_index": {{ cart.item_count | plus: 1 }} }
+          properties: { "cart_index": {{ cart.item_count }} }
         }
       ]
     })

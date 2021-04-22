@@ -7,9 +7,12 @@ let url = "https://bf39dff873081d5f3188b06656b3cbc1:shppa_494791fedd9fa764b23969
 
 console.log(url);
 
-function createMetafield() {
+async function createMetaField() {
 
-  number = axios.get(url).then(response => console.log(response.data.metafields[0].value));
+  let number = await axios.get(url).then(response => response.data.metafields[0].value);
+
+  console.log(`Current metafield count: ${number}`);
+
 
   const data = {
     "metafield": {
@@ -27,13 +30,7 @@ function createMetafield() {
   }).catch((err) => {
     console.error(err);
   });
-
-
 }
 
-// function axiosTest() {
-//      return axios.get(url).then(response => console.log(response.data.metafields[0].value));
-// }
 
-// createMetafield();
-axiosTest();
+  createMetaField();

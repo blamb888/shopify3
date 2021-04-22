@@ -71,7 +71,7 @@
                   <ul>
                     {% for property in item.properties %}
                       {% comment %} <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li> {% endcomment %}
-                      <li>{{ item.index | plus: 1 }}.&nbsp;{{ item.title }} x{{ item.quantity }}&nbsp;({{ property.first }}: {{ property.last | plus: 1 }})</li>
+                      <li>{{ item.index | plus: 1 }}.&nbsp;{{ item.title }} x{{ item.quantity }}&nbsp;({{ property.first }}: {{ property.last }})</li>
                     {% endfor %}
                   </ul>
                   {% endunless %}
@@ -104,7 +104,7 @@
         {
           quantity: parseInt($("#Quantity").val()),
           id: {{ product.selected_or_first_available_variant.id }},
-          properties: { "cart_index": {{ cart.item_count }} }
+          properties: { "cart_index": {{ cart.item_count | plus: 1 }} }
         }
       ]
     })

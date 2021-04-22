@@ -57,10 +57,13 @@
   // Get the output text
   let text = document.getElementById("CartNote");
   // If the checkbox is checked, display the output text
-  if (checkBox.checked != true){
-    text.style.display = "none";
-  } else {
+  if (checkBox.checked == true){
+    text.disabled = false;
     text.style.display = "block";
+  } else {
+    text.disabled = true;
+    text.style.display = "none";
+    text.value = "";
   }
 }
 </script>

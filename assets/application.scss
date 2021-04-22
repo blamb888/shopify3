@@ -7,7 +7,9 @@
 body {
   display: flex !important;
   flex-direction: column;
-  justify-content: center !important;
+  justify-content: space-between !important;
+  // height: 100vh;
+  // justify-content: center !important;
   align-items: center !important;
   & .links {
     display: inline-block;

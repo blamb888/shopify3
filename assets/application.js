@@ -11,7 +11,7 @@ async function createMetaField() {
 
   await axios.get(url)
   .then(function(response) {
-    if(response.status === 201) {
+    if(response.status === 200) {
      number = response.data.metafields[0].value;
     } else {
       number = 0;

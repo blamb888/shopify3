@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import "footer";
+
 
 body {
   display: flex !important;
@@ -8,9 +10,9 @@ body {
   & .links {
     display: inline-block;
   }
-  & main {
-    width: 55% !important;
-  }
+  // & main {
+  //   width: 55% !important;
+  // }
   & h1, h2, p, a {
   font-family: 'Roboto', sans-serif !important;
   padding: 8px !important;
@@ -18,14 +20,15 @@ body {
   & a {
     text-decoration: none !important;
     font-weight: bold !important;
+    color: white;
+    font-size: xxx-large;
   }
-  & div {
-    margin: 16px !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+  // & div {
+  //   flex-direction: column;
+  //   align-items: center;
+  //   justify-content: center;
+  //   text-align: center;
+  // }
   & img {
     border-radius: 24px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.342);
@@ -51,6 +54,7 @@ body {
   width: 100%;
   height: auto;
   text-shadow: 2px;
+  margin: auto auto !important;
   & #current-item, #your-cart {
     border-bottom: 5px solid black;
   }
@@ -109,3 +113,79 @@ body {
   font-size: 14px;
 }
 
+h1 div {
+  margin: 16px;
+}
+
+#shopify-section-footer{
+  width: 100% !important;
+  margin-top: 80px;
+}
+.footer {
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  width: 100% !important;
+  padding: 0px 50px;
+  color: white;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: white;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer .fa-heart {
+  color: #D23333;
+}
+
+
+#shopify-section-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+  url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnerdsonearth.com%2Fwp-content%2Fuploads%2F2014%2F12%2Fdd3.jpg&f=1&nofb=1);
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  box-shadow: 2px 2px 2px 2px antiquewhite;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}

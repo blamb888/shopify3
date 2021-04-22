@@ -65,11 +65,18 @@
       </div>
       <div class="modal-body" id="your-cart">
           <h3 class="modal-title" id="exampleModalLongTitle">Your Cart:</h3>
-          <ul>
-            {% for item in cart.items %}
-            <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li>
-            {% endfor %}
-          </ul>
+            <ul>
+              {% for item in cart.items %}
+                {% unless item.properties == empty %}
+                  <ul>
+                    {% for property in item.properties %}
+                      {% comment %} <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li> {% endcomment %}
+                      <li>{{ property.first }}: {{ property.last | plus: 1 }}.&nbsp;{{ item.title }} x{{ item.quantity }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endunless %}
+              {% endfor %}
+            </ul>
       </div>
       <div class="modal-body">
         <h3>Total:</h3>

@@ -1,18 +1,28 @@
 // Put your application javascript here
 const axios = require('axios');
 
-console.log('metafields');
+console.log('🛠️ Creating a product metafield...');
+console.log('🛠️ Checking url...');
+let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6685497262230/metafields.json";
 
-let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6685493887126/metafields.json";
-
-console.log(url);
+console.log(`✔️ URL: ${url}`);
 
 async function createMetaField() {
 
-  let number = await axios.get(url).then(response => response.data.metafields[0].value);
+  // let number = await axios.get(url).then(response => response.data.metafields[0].value);
 
-  console.log(`Current metafield count: ${number}`);
+  await axios.get(url)
+  .then(function(response) {
+    if(response.status === 201) {
+     number = response.data.metafields[0].value;
+    } else {
+      number = 0;
+    };
+  })
 
+  console.log('🧰 Checking current value of product metafield...');
+  console.log(`✔️ Current metafield count: ${number}`);
+  console.log('🧰 Axios should return Status: 201...');
 
   const data = {
     "metafield": {
@@ -30,7 +40,8 @@ async function createMetaField() {
   }).catch((err) => {
     console.error(err);
   });
-}
 
+  console.log('✔️ Everything looks good. Congratulations on creating or updating your metafield value!🎉');
+}
 
   createMetaField();

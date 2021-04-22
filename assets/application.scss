@@ -7,22 +7,21 @@ body {
   align-items: center !important;
   & main {
     width: 55% !important;
-    margin: 24px auto !important;
   }
   & h1, h2, p, a {
   font-family: 'Roboto', sans-serif !important;
-  padding: 16px !important;
+  padding: 8px !important;
   }
   & a {
     text-decoration: none !important;
     font-weight: bold !important;
   }
   & div {
-    padding: 16px !important;
     margin: 16px !important;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   & img {
     border-radius: 24px;
@@ -37,6 +36,11 @@ body {
     }
   }
 }
+
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
 //buttons
 #AddToCart {
@@ -65,4 +69,5 @@ body {
   content: attr(data-hover);
   color: white;
   font-size: 14px;
+
 }

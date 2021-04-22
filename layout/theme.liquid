@@ -43,6 +43,8 @@
   {% endif %}
 
   <main role="main">
+    {% section 'news-carousel' %}
+    {{ section.settings.title }}
     {{ content_for_layout }}
   </main>
 </body>

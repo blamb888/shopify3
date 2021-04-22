@@ -1,0 +1,184 @@
+<div id="shopify-section-[id]" class="shopify-section slideshow">
+  <div class="grid" {{ block.shopify_attributes }}>
+
+    {% for block in section.blocks %}
+      {% if block.settings.featured == true %}
+        {% case block.type %}
+          {% when 'block-1' %}
+            <div id="box-checked" class="campaign" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-2' %}
+            <div id="box-checked" class="new-product" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-3' %}
+            <div id="box-checked" class="news" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+        {% endcase %}
+      {% endif %}
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      {% if block.settings.featured != true %}
+        {% case block.type %}
+          {% when 'block-1' %}
+            <div id="box-checked" class="campaign" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-2' %}
+            <div id="box-checked" class="new-product" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+          {% when 'block-3' %}
+            <div id="box-checked" class="news" checked="checked">
+              <h2>{{block.settings.title}}</h2>
+              <h3>"{{block.settings.description}}"</h3>
+              {% comment %} <h3>"{{block.settings.featured}}"</h3> {% endcomment %}
+            </div>
+        {% endcase %}
+      {% endif %}
+    {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Multiple Blocks",
+    "blocks": [
+      {
+        "type": "block-1",
+        "name": "Campaign",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "What's the campaign?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      },
+      {
+        "type": "block-2",
+        "name": "New Product",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "What's the new product?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      },
+      {
+        "type": "block-3",
+        "name": "News",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "What's the good news?"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Tell us a little more about it."
+          },
+          {
+            "type": "checkbox",
+            "id": "featured",
+            "label": "Featured",
+            "default": false,
+            "info": "A featured item will appear first in the carousel."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+
+  #shopify-section-[id] {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+  }
+  .grid {
+    display: flex;
+    max-width: 100%;
+    flex-direction: row;
+  }
+
+  .campaign h2 {
+    color: red;
+  }
+
+  .new-product h2 {
+    color: blue;
+  }
+
+  .news h2 {
+    color: green;
+  }
+
+  #box1, #box2, #box3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px antiquewhite;
+  }
+
+  #box-checked {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px antiquewhite;
+    padding: 24px !important;
+    margin: 24px !important;
+  }
+
+{% endstyle %}

@@ -27,3 +27,8 @@
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
 <div>{{ product.description }}</div>
+<ul>
+   {% for field in product.metafields.instructions %}
+   <li>{{ field | first }}: {{ field | last }}</li>
+   {% endfor %}
+</ul>

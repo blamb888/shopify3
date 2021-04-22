@@ -7,16 +7,6 @@ let url = "https://brandon-lambs-store.myshopify.com/admin/products/bf39dff87308
 
 console.log(url);
 
-// const metafield = JSON.stringify({
-//   "metafield": {
-//     "namespace": "global",
-//     "key": "test",
-//     "value": +1,
-//     "value_type": "integer"
-//   }
-// })
-
-
 const data = {
   "metafield": {
     "namespace": "global",

@@ -5,6 +5,9 @@ body {
   flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
+  & .links {
+    display: inline-block;
+  }
   & main {
     width: 55% !important;
   }
@@ -33,6 +36,35 @@ body {
     margin: 16px;
     & label, input, select {
       margin: 8px;
+    }
+  }
+  & ul {
+    list-style: none;
+  }
+}
+
+.modal-content{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  text-shadow: 2px;
+  & #current-item, #your-cart {
+    border-bottom: 5px solid black;
+  }
+  & div {
+      margin-top: 8px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center;
+      justify-content: center;
+    & h3 {
+      margin: 24px;
+    }
+    & h2 {
+      text-align: center !important;
     }
   }
 }

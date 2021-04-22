@@ -71,7 +71,7 @@
                   <ul>
                     {% for property in item.properties %}
                       {% comment %} <li>{{ item.index | plus: 1 }}.{{ item.title }} x{{ item.quantity }}</li> {% endcomment %}
-                      <li>{{ property.first }}: {{ property.last | plus: 1 }}.&nbsp;{{ item.title }} x{{ item.quantity }}</li>
+                      <li>{{ item.index | plus: 1 }}.&nbsp;{{ item.title }} x{{ item.quantity }}&nbsp;({{ property.first }}: {{ property.last | plus: 1 }})</li>
                     {% endfor %}
                   </ul>
                   {% endunless %}

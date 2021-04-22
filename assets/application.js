@@ -3,7 +3,7 @@ const axios = require('axios');
 
 console.log('🛠️ Creating a product metafield...');
 console.log('🛠️ Checking url...');
-let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6685496148118/metafields.json";
+let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6693539938454/metafields.json";
 
 console.log(`✔️ URL: ${url}`);
 
@@ -11,9 +11,7 @@ async function createMetaField() {
 
   await axios.get(url)
   .then(function(response) {
-    if(response.status === 200) {
-     number = response.data.metafields[0].value;
-    } else if (response.status === 201) {
+    if(response.status === 200 && response.data.metafields[0]!== undefined) {
       number = response.data.metafields[0].value;
     } else {
       number = 0;

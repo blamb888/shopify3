@@ -1,9 +1,12 @@
 // Put your application javascript here
 const axios = require('axios');
+const API_KEY = "bf39dff873081d5f3188b06656b3cbc1";
+const SECRET = "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";
+const PRODUCT = "6693552193686";
 
 console.log('🛠️ Creating a product metafield...');
 console.log('🛠️ Checking url...');
-let url = "https://bf39dff873081d5f3188b06656b3cbc1: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@brandon-lambs-store.myshopify.com/admin/products/6693552193686/metafields.json";
+let url = `https://${API_KEY}:${SECRET}@brandon-lambs-store.myshopify.com/admin/products/${PRODUCT}/metafields.json`;
 
 console.log(`✔️ URL: ${url}`);
 

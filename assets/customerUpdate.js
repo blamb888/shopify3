@@ -13,22 +13,21 @@ const shopify = new Shopify({
   password: `${SECRET}`
 });
 
+console.log('🛠️ Updating marketing permissions...');
+console.log('🛠️ Printing customer information...');
+
 async function customerUpdate() {
   shopify.customer
-    .update(CUSTOMER_ID2, { accepts_marketing: "true" })
+    .update(CUSTOMER_ID2, { accepts_marketing: "false" })
     .then((customer) => console.log(customer))
     .catch((err) => console.error(err));
-
-  console.log('🛠️ Updating marketing permissions...');
-  console.log('🛠️ Printing customer information...');
 
   shopify.customer
     .list({ limit: 5 })
     .then((customer) => console.log(customer))
     .catch((err) => console.error(err));
-
-  console.log('✔️ Everything looks good. Congratulations on updating your customer information!🎉');
-
 }
 
 customerUpdate();
+
+console.log('✔️ Everything looks good. Congratulations on updating your customer information!🎉');

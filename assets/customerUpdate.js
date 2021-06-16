@@ -10,12 +10,25 @@ const shopify = new Shopify({
   password: process.env.SECRET
 });
 
+const customer_email = 'loki@hotmail.co.jp';
+
 console.log('🛠️ Updating marketing permissions...');
 console.log('🛠️ Printing customer information...');
 
 async function customerUpdate() {
-  shopify.customer
-    .update(process.env.CUSTOMER_ID, { accepts_marketing: "false" })
+// Get customer information (ID) from email
+  let customer = await shopify.customer
+    .search( {email: customer_email} )
+    .then((customer) => (customer))
+    .catch((err) => console.error(err));
+// Parse the ID
+  console.log(typeof customer);
+  let customer_id = customer[0].id;
+  console.log(customer_id);
+
+
+  await shopify.customer
+    .update(customer_id, { accepts_marketing: "false" })
     .then((customer) => console.log(customer))
     .catch((err) => console.error(err));
 }

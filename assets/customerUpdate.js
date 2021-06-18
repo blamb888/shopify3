@@ -19,7 +19,6 @@ async function customerUpdate() {
 // Get customer information (ID) from email
   let customer = await shopify.customer
     .search( {email: customer_email} )
-    .then((customer) => (customer))
     .catch((err) => console.error(err));
 // Parse the ID
   console.log(typeof customer);
@@ -28,9 +27,9 @@ async function customerUpdate() {
 
 
   await shopify.customer
-    .update(customer_id, { accepts_marketing: "false" })
-    .then((customer) => console.log(customer))
-    .catch((err) => console.error(err));
+  .update(customer_id, { accepts_marketing: "true" })
+  .catch((err) => console.error(err));
+  console.log(customer);
 }
 
 customerUpdate();

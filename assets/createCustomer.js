@@ -41,7 +41,10 @@ async function createCustomer(customer_email) {
     console.log(customer_id)
 
       let updated_customer = await shopify.customer
-        .update(customer_id, { accepts_marketing: "false" })
+        .update(customer_id, {
+          accepts_marketing: "false",
+          tags: [ "MailUnsubscribe", `${timestamp}` ]
+        })
         .catch((err) => console.error(err));
         console.log("this is the update method");
         console.log(updated_customer);

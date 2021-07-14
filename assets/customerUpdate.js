@@ -45,11 +45,11 @@ async function customerUpdate() {
 
 
 // CODE TO UPDATE MARKETING STATUS
-  // await shopify.customer
-  // .update(customer_id, { accepts_marketing: "false" })
-  // .catch((err) => console.error(err));
-  // console.log("this is the update method");
-  // console.log(customer);
+  await shopify.customer
+  .update(customer_id, { accepts_marketing: "false" })
+  .catch((err) => console.error(err));
+  console.log("this is the update method");
+  console.log(customer);
 }
 
 customerUpdate();

@@ -55,3 +55,21 @@ async function customerUpdate() {
 customerUpdate();
 
 console.log('✔️ Everything looks good. Congratulations on updating your customer information!🎉');
+
+
+    // START ------ OLD CODE W/O Customer Creation
+    // // Get customer information (ID) from email
+    // let customer = await shopify.customer
+    //   .search( {email: customer_email} )
+    //   .catch((err) => console.error(err));
+
+    // // Parse the ID
+    // let customer_id = customer[0].id;
+    // console.log(customer_id);
+
+    // // Set Shopify marketing permissions to "false"
+    // await shopify.customer
+    //   .update(customer_id, { accepts_marketing: "false" })
+    //   .then((customer) => console.log(customer))
+    //   .catch((err) => console.error(err));
+    // END ------ OLD CODE W/O Customer Creation

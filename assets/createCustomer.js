@@ -58,6 +58,6 @@ const BRANDON_EMAIL_FS = process.env.BRANDON_EMAIL_FS;
 const BOBBY_D_EMAIL = process.env.BOBBY_D_EMAIL;
 const RU_EMAIL = process.env.RU_EMAIL;
 
-createCustomer(YOSHIE_EMAIL);
+createCustomer(BRANDON_EMAIL_FS);
 
 module.exports = { createCustomer }

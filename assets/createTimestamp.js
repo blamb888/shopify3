@@ -19,7 +19,7 @@ function createTimestamp () {
   // console.log(timestamp);
   // OLD CODE --------------- END
   // console.log(date_ob.toLocaleDateString('ja-JP'));
-  let timestamp = new Intl.DateTimeFormat('ja-JP', {dateStyle: 'short', timeStyle: 'long'}).format(date_ob);
+  let timestamp = new Intl.DateTimeFormat('ja-JP', {dateStyle: 'short', timeStyle: 'long', timeZone: 'Asia/Seoul'}).format(date_ob);
   console.log("Intl date:" + timestamp);
   return timestamp
 }

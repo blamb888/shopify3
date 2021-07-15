@@ -16,15 +16,15 @@ const shopify = new Shopify({
 
 async function createCustomer(customer_email) {
 
-  let timestamp = createTimestamp();
+  const timestamp = createTimestamp();
 
-  let customer_search = await shopify.customer
+  const customer_search = await shopify.customer
     .search( {email: customer_email} )
     .catch((err) => console.error(err));
 
   if(customer_search.length === 0) {
     console.log("customer search came up nill")
-    let new_customer = await shopify.customer
+    const new_customer = await shopify.customer
       .create({
         email: customer_email,
         tags: [ "MailUnsubscribe", `${timestamp}` ]
@@ -32,21 +32,24 @@ async function createCustomer(customer_email) {
       .catch((err) => console.error(err));
     console.log("new customer created")
     console.log(new_customer);
-    let customer_id = new_customer.id
+    const customer_id = new_customer.id
     console.log(customer_id);
   } else {
     console.log("customer search returned this:")
     console.log(customer_search);
-    let customer_id = customer_search[0].id;
-    console.log(customer_id)
-
-      let updated_customer = await shopify.customer
+    const customer_id = customer_search[0].id;
+    console.log(customer_id);
+      // Grab existing tags from customer_search object
+      const existing_tags = customer_search[0].tags;
+      console.log("This is the existing_tags var: " + existing_tags);
+      // Add existing tags to tags array in update method
+      const updated_customer = await shopify.customer
         .update(customer_id, {
           accepts_marketing: "false",
-          tags: [ "MailUnsubscribe", `${timestamp}` ]
+          tags: [ `${existing_tags}`, "MailUnsubscribe", `${timestamp}` ]
         })
         .catch((err) => console.error(err));
-        console.log("this is the update method");
+        console.log("This is the update method");
         console.log(updated_customer);
   }
 

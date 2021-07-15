@@ -23,7 +23,7 @@ async function createCustomer(customer_email) {
     .catch((err) => console.error(err));
   const customer_search = customer_search_array[0];
 
-  if(customer_search.length === 0) {
+  if(customer_search_array.length === 0) {
     console.log("customer search came up nill")
     const new_customer = await shopify.customer
       .create({
